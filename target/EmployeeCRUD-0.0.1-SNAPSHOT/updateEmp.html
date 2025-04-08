@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Employee</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Update Employee</h2>
+    <form id="updateForm">
+        <input type="hidden" name="action" value="update">
+        <input type="hidden" name="empId" id="empId">
+        <div>
+            <label>First Name:</label>
+            <input type="text" name="firstName" id="firstName" required>
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <input type="text" name="lastName" id="lastName" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+            <label>Mobile:</label>
+            <input type="tel" name="mobileNumber" id="mobileNumber" required>
+        </div>
+        <div>
+            <label>Salary:</label>
+            <input type="number" step="0.01" name="salary" id="salary" required>
+        </div>
+        <div>
+            <label>Department:</label>
+            <input type="text" name="department" id="department" required>
+        </div>
+        <button type="submit">Update</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        const baseUrl = window.location.pathname.includes('EmployeeCRUD') ? '/EmployeeCRUD' : '';
+        const employeesUrl = `${baseUrl}/employees`;
+        const urlParams = new URLSearchParams(window.location.search);
+        const empId = urlParams.get('id');
+
+        fetch(`${employeesUrl}/edit/${empId}`)
+            .then(response => response.json())
+            .then(employee => {
+                if (employee.error) {
+                    document.getElementById('message').textContent = employee.error;
+                } else {
+                    document.getElementById('empId').value = employee.empId;
+                    document.getElementById('firstName').value = employee.firstName;
+                    document.getElementById('lastName').value = employee.lastName;
+                    document.getElementById('email').value = employee.email;
+                    document.getElementById('mobileNumber').value = employee.mobileNumber;
+                    document.getElementById('salary').value = employee.salary;
+                    document.getElementById('department').value = employee.department;
+                }
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = 'Error loading employee: ' + error.message;
+            });
+
+        document.getElementById('updateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch(employeesUrl, {
+                method: 'POST',
+                body: new URLSearchParams(formData), // Convert FormData to URL-encoded string
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded' // Set correct content type
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const message = document.getElementById('message');
+                if (data.error) {
+                    message.style.color = 'red';
+                    message.textContent = data.error === 'Invalid action' ? 'Invalid' : data.error;
+                } else {
+                    message.style.color = 'green';
+                    message.textContent = data.message;
+                    setTimeout(() => window.location.href = 'displayEmp.html', 1000);
+                }
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = 'Error: ' + error.message;
+            });
+        });
+    </script>
+</body>
+</html>

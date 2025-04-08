@@ -1,0 +1,223 @@
+/* display.css - Employee Management System Styles */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #4cc9f0;
+  --danger: #f72585;
+  --success: #4ad66d;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: var(--dark);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+a.add-employee {
+  display: block;
+  width: max-content;
+  margin: 0 auto 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+a.add-employee:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 97, 238, 0.2);
+}
+
+table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+thead {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+}
+
+th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+th:first-child {
+  border-top-left-radius: var(--border-radius);
+}
+
+th:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(67, 97, 238, 0.03);
+}
+
+/* Enhanced Action Buttons */
+td:last-child {
+  white-space: nowrap;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.action-btn:last-child {
+  margin-right: 0;
+}
+
+.action-btn i {
+  font-size: 0.9rem;
+}
+
+.btn-edit {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.2);
+}
+
+.btn-edit:hover {
+  background-color: #3e8e41;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  box-shadow: 0 2px 5px rgba(244, 67, 54, 0.2);
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+#message {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-align: center;
+  display: none;
+}
+
+#message.success {
+  display: block;
+  background-color: rgba(74, 214, 109, 0.1);
+  color: #0a9396;
+  border-left: 4px solid var(--success);
+}
+
+#message.error {
+  display: block;
+  background-color: rgba(247, 37, 133, 0.1);
+  color: var(--danger);
+  border-left: 4px solid var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .action-btn {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}

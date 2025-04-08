@@ -1,0 +1,385 @@
+/* styles.css - Modern Employee Management System */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #4cc9f0;
+  --danger: #f72585;
+  --success: #4ad66d;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fa;
+  color: var(--dark);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+a.add-employee {
+  display: block;
+  width: max-content;
+  margin: 0 auto 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+a.add-employee:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(67, 97, 238, 0.2);
+}
+
+table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+thead {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+}
+
+th {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+th:first-child {
+  border-top-left-radius: var(--border-radius);
+}
+
+th:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(67, 97, 238, 0.03);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.actions a, 
+.actions button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  text-decoration: none;
+}
+
+.actions a {
+  background-color: rgba(72, 149, 239, 0.1);
+  color: var(--primary);
+}
+
+.actions a:hover {
+  background-color: rgba(72, 149, 239, 0.2);
+}
+
+.actions button {
+  background-color: rgba(247, 37, 133, 0.1);
+  color: var(--danger);
+}
+
+.actions button:hover {
+  background-color: rgba(247, 37, 133, 0.2);
+}
+
+#message {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+#message.success {
+  display: block;
+  background-color: rgba(74, 214, 109, 0.1);
+  color: #0a9396;
+  border-left: 4px solid var(--success);
+}
+
+#message.error {
+  display: block;
+  background-color: rgba(247, 37, 133, 0.1);
+  color: var(--danger);
+  border-left: 4px solid var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  th, td {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .actions a, 
+  .actions button {
+    width: 100%;
+    text-align: center;
+  }
+}
+/*UpdateEmp*/
+/* Update Employee Form Styles */
+#updateForm {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#updateForm div {
+    margin-bottom: 15px;
+}
+
+#updateForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#updateForm input[type="text"],
+#updateForm input[type="email"],
+#updateForm input[type="tel"],
+#updateForm input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#updateForm input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+#updateForm button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#updateForm button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Message styles */
+#message {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    #updateForm {
+        padding: 15px;
+        margin: 15px;
+    }
+    
+    #updateForm input[type="text"],
+    #updateForm input[type="email"],
+    #updateForm input[type="tel"],
+    #updateForm input[type="number"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    #updateForm button[type="submit"] {
+        padding: 10px;
+    }
+}
+
+/* RegisterEmp*/
+/* Register Employee Form Styles */
+#registerForm {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#registerForm div {
+    margin-bottom: 15px;
+}
+
+#registerForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+#registerForm input[type="text"],
+#registerForm input[type="email"],
+#registerForm input[type="tel"],
+#registerForm input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#registerForm input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+#registerForm button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #2ecc71; /* Green color for register action */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#registerForm button[type="submit"]:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
+/* Message styles */
+#message {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    #registerForm {
+        padding: 15px;
+        margin: 15px;
+    }
+    
+    #registerForm input[type="text"],
+    #registerForm input[type="email"],
+    #registerForm input[type="tel"],
+    #registerForm input[type="number"] {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    #registerForm button[type="submit"] {
+        padding: 10px;
+    }
+}
