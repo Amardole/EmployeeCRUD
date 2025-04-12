@@ -1,6 +1,7 @@
 # Employee Management System
-
 A modern web application for managing employee records with CRUD functionality, built with Java Servlets, JPA/Hibernate, and embedded Tomcat.
+
+![Test Image 1](displayemp.png)
 
 ## Features
 
