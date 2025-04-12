@@ -47,7 +47,7 @@ A modern web application for managing employee records with CRUD functionality, 
 ### Development Tools
 - Maven/Gradle (dependency management)
 - Git (version control)
-- VS Code/IntelliJ IDEA (development)
+- VS Code/STS (development)
 
 ## Installation & Setup
 
