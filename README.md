@@ -2,16 +2,16 @@
 A modern web application for managing employee records with CRUD functionality, built with Java Servlets, JPA/Hibernate, and embedded Tomcat.
 
 ![Image 1](displayemp.png)
-**Display All Employees**
+**1 Display All Employees**
 
 ![Image 2](insertemp.png)
-**insert Employees**
+**2 insert Employees**
 
 ![Image 3](updateemp.png)
-**update Employee Records.**
+**3 update Employee Records.**
 
 ![Image 4](deleteemp.png)
-**Delete Perticular Employee**
+**4 Delete Perticular Employee**
 
 
 ## Features
