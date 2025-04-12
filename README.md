@@ -2,16 +2,16 @@
 A modern web application for managing employee records with CRUD functionality, built with Java Servlets, JPA/Hibernate, and embedded Tomcat.
 
 ![Image 1](displayemp.png)
-##Display All Employees
+## Display All Employees
 
 ![Image 2](insertemp.png)
-##insert Employees
+## insert Employees
 
 ![Image 3](updateemp.png)
-##update Employee Records.
+## update Employee Records.
 
 ![Image 4](deleteemp.png)
-##Delete Perticular Employee
+## Delete Perticular Employee
 
 
 ## Features
@@ -69,8 +69,3 @@ A modern web application for managing employee records with CRUD functionality, 
 - PostgreSQL 12+
 - Git
 
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/employee-management-system.git
-   cd employee-management-system
